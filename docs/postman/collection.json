@@ -1,0 +1,256 @@
+{
+	"info": {
+		"_postman_id": "2595478b-fbd5-4658-ae07-8007e8403084",
+		"name": "p360",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "17125979"
+	},
+	"item": [
+		{
+			"name": "Crear solicitudes de pago",
+			"item": [
+				{
+					"name": "Crear solicitud de pago",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment_request\":  {\r\n        \"description\":  \"Pago TEST 3\",\r\n        \"first_due_date\":  \"2024-11-25\",\r\n        \"first_total\":  299.00,\r\n        \"payer_name\":  \"Nacho Test 3\"\r\n    }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT}}/api/payment-request",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"payment-request"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Solicitudes de pago (en lote)",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payments\":  [\r\n        {\r\n            \"payment_request\":  {\r\n                \"description\":  \"Pago Lote 10\",\r\n                \"first_due_date\":  \"2024-11-26\",\r\n                \"first_total\":  789.00,\r\n                \"payer_name\":  \"Cliente 1\"\r\n            }\r\n        },\r\n        {\r\n            \"payment_request\":  {\r\n                \"description\":  \"Pago Lote 20\",\r\n                \"first_due_date\":  \"2024-11-26\",\r\n                \"first_total\":  656.00,\r\n                \"payer_name\":  \"Cliente 1\"\r\n            }\r\n        },\r\n            {\r\n            \"payment_request\":  {\r\n                \"description\":  \"Pago Lote 30\",\r\n                \"first_due_date\":  \"2024-11-26\",\r\n                \"first_total\":  2999.00,\r\n                \"payer_name\":  \"Cliente 2\"\r\n            }\r\n        },\r\n            {\r\n            \"payment_request\":  {\r\n                \"description\":  \"Pago Lote 40\",\r\n                \"first_due_date\":  \"2024-11-26\",\r\n                \"first_total\":  500.00,\r\n                \"payer_name\":  \"Cliente 3\"\r\n            }\r\n        },\r\n            {\r\n            \"payment_request\":  {\r\n                \"description\":  \"Pago Lote 50\",\r\n                \"first_due_date\":  \"2024-11-26\",\r\n                \"first_total\":  200.00,\r\n                \"payer_name\":  \"Cliente 4\"\r\n            }\r\n        },\r\n            {\r\n            \"payment_request\":  {\r\n                \"description\":  \"Pago Lote 88\",\r\n                \"first_due_date\":  \"2024-11-23\", // mal la fecha para probar error\r\n                \"first_total\":  100.00,\r\n                \"payer_name\":  \"Cliente 5\"\r\n            }\r\n        }\r\n    ],\r\n    \"allowRetries\":  true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT}}/api/batch-payments",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"batch-payments"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Listar solicitudes de pago",
+			"item": [
+				{
+					"name": "Listar solicitudes de pago",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/payment-requests",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"payment-requests"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Listar solicitud de pago por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/payment-request/:id",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"payment-request",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "4192f43d-2d0d-43f8-8440-3c88c3d32b6e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Historial de solicitud por id",
+			"item": [
+				{
+					"name": "Historial solicitud de pago por id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-Webhook-Token",
+								"value": "NDNiNWJmN2I4YmEwMGRjMzM5NjhjMzY5YWQ3OTAyZjFiNTA3Y2Y1YmNhZGI4MzNiZGI5ZGUyOTRmZGJjMTVjMw",
+								"description": "Token de autenticación",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{ENDPOINT}}/api/webhook/payment-status/:payment_id/history",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"webhook",
+								"payment-status",
+								":payment_id",
+								"history"
+							],
+							"variable": [
+								{
+									"key": "payment_id",
+									"value": "4192f43d-2d0d-43f8-8440-3c88c3d32b6e"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Webhook - Solicitud de pago",
+			"item": [
+				{
+					"name": "Webhook - Solicitud de pago",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{TOKEN}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Webhook-Token",
+								"value": "NDNiNWJmN2I4YmEwMGRjMzM5NjhjMzY5YWQ3OTAyZjFiNTA3Y2Y1YmNhZGI4MzNiZGI5ZGUyOTRmZGJjMTVjMw",
+								"description": "Token de autenticación para webhook",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"payment_id\": \"9abb956e-e50a-4569-8ee5-bd8c52fb737b\",   \r\n    \"new_status\": \"paid\"                                     \r\n}                                                            \r\n",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ENDPOINT}}/api/webhook/payment-status",
+							"host": [
+								"{{ENDPOINT}}"
+							],
+							"path": [
+								"api",
+								"webhook",
+								"payment-status"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

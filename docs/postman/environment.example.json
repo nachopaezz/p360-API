@@ -1,0 +1,21 @@
+{
+	"id": "39e7a63c-50df-42f8-a67c-3e2bca37d227",
+	"name": "P360",
+	"values": [
+		{
+			"key": "ENDPOINT",
+			"value": "http://localhost:3000",
+			"type": "default",
+			"enabled": true
+		},
+		{
+			"key": "TOKEN",
+			"value": "your-pagos360-token-here",
+			"type": "default",
+			"enabled": true
+		}
+	],
+	"_postman_variable_scope": "environment",
+	"_postman_exported_at": "2024-11-24T22:13:50.279Z",
+	"_postman_exported_using": "Postman/11.20.0"
+}

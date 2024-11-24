@@ -179,3 +179,10 @@ paid → pending
 reverted → paid
 reverted → pending
 ```
+
+## Configuración del Environment
+
+1. Duplica `docs/postman/environment.example.json` como `environment.json`
+2. Reemplaza los valores de ejemplo:
+   - `ENDPOINT`: http://localhost:3000 (para desarrollo local)
+   - `TOKEN`: Tu token de autenticación
