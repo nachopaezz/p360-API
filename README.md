@@ -45,7 +45,11 @@ Opcion 2: nodemon src/index.js
 
 #### Crear Pago
 ```
+<<<<<<< HEAD
 POST /api/payment-requests
+=======
+POST /api/payment-request
+>>>>>>> master
 Content-Type: application/json
 
 {
@@ -60,7 +64,16 @@ Content-Type: application/json
 
 #### Listar Pagos
 ```
+<<<<<<< HEAD
 GET /api/payment-requests?page=1&limit=10
+=======
+GET /api/payment-request?page=1&limit=10
+```
+
+#### Obtener Pago por ID
+```
+GET /api/payment-request/:id
+>>>>>>> master
 ```
 
 #### Pagos en Lote
@@ -104,6 +117,14 @@ Content-Type: application/json
 }
 ```
 
+<<<<<<< HEAD
+=======
+#### Obtener historial de un Pago por ID
+```
+GET /api/webhook/payment-status/:payment_id/history
+```
+
+>>>>>>> master
 ### Respuestas
 
 #### Crear Pago - Respuesta Exitosa
@@ -158,6 +179,7 @@ Content-Type: application/json
 - Transiciones permitidas:
 ```
 pending → paid
+<<<<<<< HEAD
 paid → reversed
 ```
 - Transiciones NO permitidas:
@@ -166,4 +188,14 @@ pending → reversed
 paid → pending
 reversed → paid
 reversed → pending
+=======
+paid → reverted
+```
+- Transiciones NO permitidas:
+```
+pending → reverted
+paid → pending
+reverted → paid
+reverted → pending
+>>>>>>> master
 ```

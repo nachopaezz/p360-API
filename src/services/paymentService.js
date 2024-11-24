@@ -6,8 +6,8 @@ const { API_TOKEN, API_BASE_URL } = require('../config/constants');
 
 const createPayment = async (paymentData) => {
   try {
-      // Calcular fecha mínima según Pagos360 (24/11/2024)
-      const minDate = moment('2024-11-24', 'YYYY-MM-DD').startOf('day');
+       // Fecha actual como fecha mínima
+      const minDate = moment().startOf('day');
       const requestDate = moment(paymentData.first_due_date);
 
       // Validar que la fecha proporcionada sea posterior a la mínima
@@ -40,7 +40,6 @@ const createPayment = async (paymentData) => {
           }
       );
 
-      
         // Crear el registro en nuestra base de datos
         const payment = await PaymentRequest.create({
           description: paymentData.description,
@@ -108,7 +107,18 @@ const listPayments = async (page = 1, limit = 10) => {
     }
 };
 
+
+const getPaymentById = async (id) => {
+    try {
+        const payment = await PaymentRequest.findByPk(id);
+        return payment;
+    } catch (error) {
+        throw new Error(`Error al obtener el pago: ${error.message}`);
+    }
+};
+
 module.exports = {
     createPayment,
-    listPayments
+    listPayments,
+    getPaymentById
 };

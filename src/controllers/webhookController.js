@@ -70,13 +70,14 @@ const updatePaymentStatus = async (req, res) => {
     }
 };
 
+// Obtiene el historial de estados de un pago por id
 const getPaymentHistory = async (req, res) => {
     try {
         const { payment_id } = req.params;
 
         const history = await PaymentStatusHistory.findAll({
             where: { payment_id },
-            order: [['changed_at', 'DESC']]
+            order: [['changed_at', 'ASC']]
         });
 
         res.status(200).json({

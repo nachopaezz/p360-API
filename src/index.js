@@ -1,7 +1,9 @@
 const express = require('express');
 const sequelize = require('./config/database');
-const paymentRoutes = require('./routes/paymentRoutes'); // Importar rutas
-const webhookRoutes = require('./routes/webhookRoutes'); // Importar rutas
+
+const paymentRoutes = require('./routes/paymentRoutes');
+const webhookRoutes = require('./routes/webhookRoutes');
+
 
 // Crear la aplicación Express
 const app = express();

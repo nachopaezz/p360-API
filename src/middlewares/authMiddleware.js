@@ -26,7 +26,7 @@ const validateApiToken = (req, res, next) => {
     }
 };
 
-// Middleware específico para webhooks (lo usaremos después)
+// Middleware para webhooks
 const validateWebhookToken = (req, res, next) => {
     const token = req.headers['x-webhook-token'];
 
