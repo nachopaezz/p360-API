@@ -1,5 +1,5 @@
 module.exports = {
-  API_TOKEN: 'NDNiNWJmN2I4YmEwMGRjMzM5NjhjMzY5YWQ3OTAyZjFiNTA3Y2Y1YmNhZGI4MzNiZGI5ZGUyOTRmZGJjMTVjMw',
-  API_BASE_URL: 'https://api.sandbox.pagos360.com',
-  BASE_CHECKOUT_URL: 'https://sandbox.pagos360.com'  // Cambiado a sandbox
+  API_TOKEN: 'eXaMpl3T0k3n',
+  API_BASE_URL: 'https://api.sandbox.example.com',
+  BASE_CHECKOUT_URL: 'https://sandbox.example.com'
 };
